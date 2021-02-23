@@ -1,0 +1,16 @@
+---
+version: "2.1"
+services:
+  heimdall:
+    image: ghcr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Heimdall:/config
+    ports:
+      - 71:80
+      - 443:443
+    restart: unless-stopped    

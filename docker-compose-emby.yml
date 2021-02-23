@@ -1,0 +1,26 @@
+---
+version: "2.1"
+services:
+  emby:
+    image: ghcr.io/linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Emby:/config
+      - /srv/dev-disk-by-label-NAS/Data/Series:/tv
+      - /srv/dev-disk-by-label-NAS/Data/Movies:/movies
+      - /srv/dev-disk-by-label-NAS/Data/Music:/music
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+    devices:
+      - /dev/dri:/dev/dri #optional
+      - /dev/vchiq:/dev/vchiq #optional
+      - /dev/video10:/dev/video10 #optional
+      - /dev/video11:/dev/video11 #optional
+      - /dev/video12:/dev/video12 #optional
+    restart: unless-stopped    

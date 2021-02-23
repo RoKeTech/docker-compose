@@ -1,0 +1,39 @@
+---
+version: "2.1"
+services:
+  minecraft-server:
+    image: itzg/minecraft-server:multiarch #wersja dla RaspberryPi
+    container_name: minecraft
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+      - EULA=TRUE #umowa licencyjna
+      - VERSION=1.16.5 #domyślna wersja to LATEST, możliwe:(SNAPSHOT, specyficzna wersja np. 1.7.9)
+      - TYPE=VANILLA #domyślny typ to VANILLA, możliwe:(TUINITY, PURPUR, YATOPIA, MAGMA, MOHIST, CATSERVER, PAPER, BUKKIT, SPIGOT, FABRIC, SPONGEVANILLA)
+      - OVERRIDE_SERVER_PROPERTIES=FALSE #domyślnie FALSE, ustawienie na TRUE oznacza nadpisywanie konfiguracji przy każdym uruchomieniu kontenera
+      - SERVER_NAME=RoKeTech-MinecraftServer #nazwa serwera
+      - DIFFICULTY=NORMAL #domyślnie poziom trudności to EASY, możliwe:(PEACEFUL, EASY, NORMAL, HARD)
+      - OPS=RoKe1 #administrator, może wykonywać polecenia bezpośrednio z poziomu gry
+      - MAX_PLAYERS=20 #domyślnie maksymalna liczba graczy na serwerze to 20
+      - MAX_WORLD_SIZE=10000 #domyślnie wielkość świata to 29999984. Oznacza to ilość kratek jako promień świata. Podając wartość 1000, otrzymujemy świat wielkości 2000x2000
+      - ALLOW_NETHER=TRUE #zezwól graczom na podróże do netheru
+      - ANNOUNCE_PLAYER_ACHIEVEMENTS=TRUE #informuj gracza o zdobyciu osiągnięcia
+      - MAX_BUILD_HEIGHT=256 #maksymalna wysokość budowania
+      - SPAWN_ANIMALNS=TRUE #zezwala na generowanie zwierząt
+      - SPAWN_MONSTERS=TRUE #zezwala na generowanie potworków
+      - SPAWN_NPCS=TRUE #zezwala na generowanie wieśniaków
+      - VIEW_DISTANCE=10 #określa ilość danych świata wysyłanych przez serwer do klienta
+      - SEED=1785852800490497919 #wartość na podstawie, której generowany jest świat. Podaj własną, żeby odtworzyć świat z jakiegoś innego serwera.
+      - MODE=SURVIVAL #domyślny tryb to SURVIVAL, możliwe:(CREATIVE, SURVIVAL, ADVENTURE, SPECTATOR (tylko dla MC 1.8 lub starszych))
+      - MOTD=Zapraszam na serwer RoKeTech #wiadomość dnia
+      - PVP=TRUE #walka gracza z graczem, domyślnie TRUE
+      - ONLINE_MODE=FALSE #sprawdzanie graczy w bazie kont Minecraft
+      - ALLOW_FLIGHT=FALSE #zezwól graczom na latanie w trybie SURVIVAL
+      - MEMORY=750M #ilość pamięci RAM możliwej do wykorzystania przez serwer
+    ports:
+      - 25565:25565
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Minecraft:/data
+    restart: always    

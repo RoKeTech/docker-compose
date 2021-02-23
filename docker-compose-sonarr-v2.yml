@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr-v2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/SonarrV2:/config
+      - /srv/dev-disk-by-label-NAS/Data/Series:/tv
+      - /srv/dev-disk-by-label-NAS/Data/Torrents:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped

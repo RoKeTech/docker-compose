@@ -1,0 +1,23 @@
+---
+version: "2.1"
+services:
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      - USER=admin #optional
+      - PASS=adminadmin #optional
+      - WHITELIST=iplist #optional
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Transmission:/config
+      - /srv/dev-disk-by-label-NAS/Data/Torrents:/downloads
+      - /srv/dev-disk-by-label-NAS/Data/Torrents/Watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped    

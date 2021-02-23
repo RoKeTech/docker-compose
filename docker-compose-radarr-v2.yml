@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  radarr:
+    image: ghcr.io/linuxserver/radarr:arm32v7-version-v0.2.0.1504
+    container_name: radarr-v2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/RadarrV2:/config
+      - /srv/dev-disk-by-label-NAS/Data/Movies:/movies
+      - /srv/dev-disk-by-label-NAS/Data/Torrents:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped    

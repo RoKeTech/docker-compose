@@ -1,0 +1,16 @@
+---
+version: "2.1"
+services:
+  deluge:
+    image: ghcr.io/linuxserver/deluge
+    container_name: deluge
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Deluge:/config
+      - /srv/dev-disk-by-label-NAS/Data/Torrents:/downloads
+    restart: unless-stopped    

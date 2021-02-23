@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+   jdownloader:
+    image: jaymoulin/jdownloader
+    container_name: jdownloader
+    restart: always
+    user: 1000:1000
+    volumes:
+        - /srv/dev-disk-by-label-NAS/Config/JDownloader:/opt/JDownloader/cfg
+        - /srv/dev-disk-by-label-NAS/Data/JDownloader:/opt/JDownloader/Downloads
+    environment: 
+            MYJD_USER: email@email.com
+            MYJD_PASSWORD: password
+            MYJD_DEVICE_NAME: RaspberryPi
+            XDG_DOWNLOAD_DIR: /opt/JDownloader/Downloads #optional
+    ports:
+        - 3129:3129     

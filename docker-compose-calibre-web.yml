@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  calibre-web:
+    image: ghcr.io/linuxserver/calibre-web
+    container_name: calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+      - DOCKER_MODS=linuxserver/calibre-web:calibre
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/CalibreWeb:/config
+      - /srv/dev-disk-by-label-NAS/Data/Books:/books
+    ports:
+      - 8083:8083
+    restart: unless-stopped    

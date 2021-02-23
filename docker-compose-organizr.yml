@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  heimdall:
+    image: organizr/organizr
+    container_name: organizr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Organizr:/config
+    ports:
+      - 72:80
+    restart: unless-stopped    

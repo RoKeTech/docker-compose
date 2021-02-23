@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  bazarr:
+    image: ghcr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Bazarr:/config
+      - /srv/dev-disk-by-label-NAS/Data/Movies:/movies
+      - /srv/dev-disk-by-label-NAS/Data/Series:/tv
+    ports:
+      - 6767:6767
+    restart: unless-stopped    

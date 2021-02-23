@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/Lidarr:/config
+      - /srv/dev-disk-by-label-NAS/Data/Music:/music
+      - /srv/dev-disk-by-label-NAS/Data/Torrents:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped    
