@@ -42,6 +42,7 @@
 | <a href="https://github.com/RoKeTech/docker-compose/blob/main/docker-compose-organizr.yml">docker-compose-organizr</a> | <a href="https://hub.docker.com/r/organizr/organizr">Organizr</a> | <a href="https://youtu.be/UeDBsFCUHE8?t=313">🎬 Instalacja Organizr na OpenMediaVault 5.x | Serwera NAS [#10]</a> |
 | <a href="https://github.com/RoKeTech/docker-compose/blob/main/docker-compose-minecraft-server.yml">docker-compose-minecraft-server</a> | <a href="https://hub.docker.com/r/itzg/minecraft-server">Minecraft Server</a> | <a href="https://youtu.be/k2fvZ84sev4">🎬 Instalacja serwera Minecraft na OpenMediaVault 5.x | Serwer NAS [#11]</a> |
 | <a href="https://github.com/RoKeTech/docker-compose/blob/main/docker-compose-netdata.yml">docker-compose-netdata</a> | <a href="https://hub.docker.com/r/netdata/netdata">NetData</a> | <a href="https://youtu.be/i8nD8kFH5Vc">🎬 Instalacja NetData na OpenMediaVault 5.x | Serwer NAS [#12]</a> |
+| <a href="https://github.com/RoKeTech/docker-compose/blob/main/docker-compose-teamspeak.yml">docker-compose-teamspeak</a> | <a href="https://hub.docker.com/r/ertagh/teamspeak3-server">TeamSpeak3 server</a> | <a href="https://youtu.be/JQepL5TJf-I">🎬 Instalacja serwera TeamSpeak3 na OpenMediaVault 5.x | Serwer NAS [#13]</a> |
 
 ## Using
 
