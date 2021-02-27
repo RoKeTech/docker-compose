@@ -1,0 +1,20 @@
+---
+version: '2'
+services:
+  teamspeak3-server:
+    image: ertagh/teamspeak3-server:latest
+    container_name: teamspeak
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TIMZE_ZONE=Europe/Warsaw
+      - INIFILE=0
+      - TS_UPDATE=1
+      - TS_UPDATE_BACKUP=1
+    ports:
+      - 9987:9987/udp
+      - 10011:10011/tcp
+      - 30033:30033/tcp
+    volumes:
+      - /srv/dev-disk-by-label-NAS/Config/TeamSpeak:/teamspeak/save/
+    restart: unless-stopped
